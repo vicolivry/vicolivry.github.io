@@ -1,0 +1,78 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    
+
+<style>
+* {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    background-color: black;
+}
+</style>
+</head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="index.css">
+<title>Roomie</title>
+
+
+<div style="display: inline-block; position: relative;">
+    <div
+        id="overlappingDiv"
+        style="
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            opacity: 0;
+            pointer-events: none;
+    ">
+
+<div class="chat">
+    <div class="chat-title">
+      <h1>Mat Soubiran</h1>
+      <h2>Paris</h2>
+      <figure class="avatar">
+        <img src="img/guestPlayer/guestPlayerRight.png" alt="">
+      </figure>
+    </div>
+    <div class="messages">
+      <div class="messages-content"></div>
+    </div>
+    <div class="message-box">
+      <textarea autofocus type="text" class="message-input" placeholder="Message..."></textarea>
+      <button type="submit" class="message-submit" >Envoi</button>
+    </div>
+  </div>
+  <div class="bg"></div>
+  
+    </div>
+    <canvas></canvas>
+</div>
+<script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+    integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+></script>
+
+
+
+<script src="data/collisions.js"></script>
+<script src="classes.js"></script>
+<script src="chat.js"></script>
+
+<script src="index.js"></script>
