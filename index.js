@@ -110,6 +110,14 @@ guestPlayerLeftImage.src = './img/guestPlayer/guestPlayerLeft.png';
 const guestPlayerRightImage = new Image();
 guestPlayerRightImage.src = './img/guestPlayer/guestPlayerRight.png';
 
+// Create Josie image
+const josieImage = new Image();
+josieImage.src = './img/couple/josie.png';
+
+// Create Alex image
+const alexImage = new Image();
+alexImage.src = './img/couple/alex.png';
+
 // Create dialog images
 const dialogInitiatorImage = new Image();
 dialogInitiatorImage.src = './img/dialog/dialogInitiator.png'
@@ -161,39 +169,40 @@ const guestPlayer = new Sprite({
     },
 })
 
-const couplePlayer2 = new Sprite({
-    position: {
-        x: canvas.width / 2 - (288 / 4)/ 2 + 550,
-        y: canvas.height / 2 - 96 / 2 - 170,
-    },
-    image: playerRightImage,
-    frames: {
-        max: 6,
-        hold: 10
-    },
-    sprites: {
-        up:playerUpImage,
-        down:playerDownImage,
-        right:playerRightImage,
-        left: playerLeftImage
-    }
-})
-
-const couplePlayer1 = new Sprite({
+const josie = new Sprite({
     position: {
         x: canvas.width / 2 - (288 / 4)/ 2 + 600,
         y: canvas.height / 2 - 96 / 2 - 170,
     },
-    image: guestPlayerLeftImage,
+    image: josieImage,
     frames: {
-        max: 6,
-        hold: 10
+        max: 9,
+        hold: 15,
+        elapsed: 20,
     },
     sprites: {
-        up:guestPlayerUpImage,
-        down:guestPlayerDownImage,
-        right:guestPlayerRightImage,
-        left: guestPlayerLeftImage
+        up: josieImage,
+        down: josieImage,
+        right: josieImage,
+        left: josieImage
+    },
+})
+
+const alex = new Sprite({
+    position: {
+        x: canvas.width / 2 - (288 / 4)/ 2 + 550,
+        y: canvas.height / 2 - 96 / 2 - 170,
+    },
+    image: alexImage,
+    frames: {
+        max: 9,
+        hold: 20
+    },
+    sprites: {
+        up: alexImage,
+        down: alexImage,
+        right: alexImage,
+        left: alexImage
     },
 })
 
@@ -259,7 +268,7 @@ const keys = {
 // image height
 
 
-const movables = [background, ...boundaries, foreground, guestPlayer, couplePlayer2, couplePlayer1, pathNPC.topRight, pathNPC.topLeft, pathNPC.bottomLeft, pathNPC.bottomRight]
+const movables = [background, ...boundaries, foreground, guestPlayer, alex, josie, pathNPC.topRight, pathNPC.topLeft, pathNPC.bottomLeft, pathNPC.bottomRight]
 function rectangularCollision({rectangle1, rectangle2}) {
     return (rectangle1.position.x + rectangle1.width >= rectangle2.position.x &&
         rectangle1.position.x <= rectangle2.position.x + rectangle2.width &&
@@ -422,8 +431,8 @@ function moveGuest() {
 }
 
 function moveCouple() {
-    couplePlayer2.animate = false;
-    couplePlayer1.animate = false;
+    alex.animate = true;
+    josie.animate = true;
 }
 
 const dialog = {
@@ -461,8 +470,8 @@ function animate() {
         guestPlayer.draw()
         player.draw()
     }
-    couplePlayer2.draw()
-    couplePlayer1.draw()
+    alex.draw()
+    josie.draw()
     foreground.draw()
 
     // If there is a dialog, stop moving
